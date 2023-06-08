@@ -35,7 +35,68 @@
 	keymap {
 		compatible = "zmk,keymap";
 
-		default_layer {
+		colemak_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
+// |  TAB  |  Q  |  W  |  F   |  P   |  G   |                   |  J   |  L    |  U    |  Y   |   ;   |   -   |
+// |  CAPS |  A  |  R  |  S   |  T   |  D   |                   |  H   |  N    |  E    |  I   |   O   |   '   |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  K   |  M    |  ,    |  .   |   /   | SHIFT |
+//                     | GUI  | ALT  | LOWER|  ENTER |  | SPACE | RAISE| BSPC  | GUI   |
+
+			bindings = <
+&kp ESC      &kp N1     &kp N2     &kp N3      &kp N4     &kp N5                   &kp N6 &kp N7     &kp N8      &kp N9     &kp N0        &trans
+&kp TAB      &kp Q      &kp W      &kp F       &kp P      &kp G                    &kp J  &kp L      &kp U       &kp Y      &kp SEMI      &kp RET
+&mt LCTL ESC &hm LALT A &hm LCTL R &hm LSHFT S &hm LGUI T &kp D                    &kp H  &hm RGUI N &hm RSHFT E &hm RCTL I &hm LALT O    &kp SQT
+&kp LSHFT    &kp Z      &kp X      &kp C       &kp V      &kp B &trans   &trans    &kp K  &kp M      &kp COMMA   &kp DOT    &kp FSLH      &kp RSHFT
+                                   &kp LALT    &mo 4   &mo 2 &kp ENTER &lt 3 SPACE &mo 1  &kp BSPC   &kp RALT
+			>;
+		};
+
+// symbols layer
+		raise_layer {
+			bindings = <
+&bt BT_CLR &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3 &bt BT_SEL 4 &trans    &trans   &trans &trans &trans &trans
+&kp GRAVE  &kp CARET  &kp DOLLAR  &kp LBRC  &kp PRCNT  &kp RBRC                 &kp PLUS  &kp AMPS &kp BSPC  &kp DEL  &kp BSLH  &kp PIPE
+&kp TILDE  &kp UNDER  &kp HASH    &kp LPAR  &kp MINUS  &kp RPAR                 &kp STAR  &kp RGUI &kp RSHFT &kp RCTL &kp LALT  &kp DQT
+&trans     &kp EXCL   &kp AT      &kp LBKT  &kp EQUAL  &kp RBKT  &trans &trans  &kp MINUS &trans   &kp LT    &kp GT   &kp QMARK &trans
+                                  &trans    &trans     &trans    &trans &trans  &trans    &kp BSPC &trans
+			>;
+		};
+
+// nav layer
+		lower_layer {
+			bindings = <
+&trans &kp F1     &kp F2    &kp F3     &kp F4      &kp F5                         &kp F6    &kp F7    &kp F8    &kp F9    &kp F10    &kp F11
+&trans &to 5      &trans    &kp PG_UP  &kp PG_DN   &kp C_VOL_UP                   &kp PSCRN &trans    &kp BSPC  &kp DEL   &trans     &kp F12
+&trans &kp LALT   &kp LCTL  &kp LSHFT  &kp LGUI    &kp C_PLAY_PAUSE               &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &caps_word &trans
+&trans &kp K_UNDO &kp K_CUT &kp K_COPY &kp K_PASTE &kp C_VOL_DN     &trans &trans &kp PG_UP &kp HOME  &kp END   &kp PG_DN &trans     &trans
+                            &trans     &trans      &trans &trans    &trans &trans    &kp BSPC  &trans
+			>;
+		};
+
+		one_right_hand_nav_layer {
+			bindings = <
+&trans &trans &trans &trans &trans &trans                &trans    &trans   &trans  &trans    &trans &trans
+&trans &trans &trans &trans &trans &trans                &trans    &trans   &trans  &trans    &trans &trans
+&trans &trans &trans &trans &trans &trans                &kp LEFT  &kp DOWN &kp UP  &kp RIGHT &trans &trans
+&trans &trans &trans &trans &trans &trans  &trans &trans &kp PG_UP &kp HOME &kp END &kp PG_DN &trans &trans
+                     &trans &trans &trans  &trans &trans &trans    &trans   &trans
+			>;
+
+		};
+
+		num_layer {
+			bindings = <
+&trans &trans   &trans   &trans    &trans   &trans                   &trans    &trans   &trans &trans &trans &trans
+&trans &trans   &trans   &trans    &trans   &trans                   &kp PLUS  &kp N7   &kp N8 &kp N9 &kp DOT   &trans
+&trans &kp LALT &kp LCTL &kp LSHFT &kp LGUI &trans                   &kp STAR  &kp N4   &kp N5 &kp N6 &kp COLON &trans
+&trans &trans   &trans   &kp COMMA &kp DOT  &trans  &trans &trans    &kp MINUS &kp N1   &kp N2 &kp N3 &kp FSLH  &trans
+                         &trans    &trans   &trans  &trans &kp SPACE &kp N0    &kp BSPC &trans
+// TODO same finger bigram if followed by enter
+			>;
+		};
+
+		qwerty_layer {
 // ------------------------------------------------------------------------------------------------------------
 // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
 // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   -   |
@@ -50,52 +111,8 @@
 &kp LSHFT    &kp Z      &kp X      &kp C       &kp V      &kp B &trans   &trans    &kp N  &kp M      &kp COMMA   &kp DOT    &kp FSLH      &kp RSHFT
                                    &kp LALT    &mo 4   &mo 2 &kp ENTER &lt 3 SPACE &mo 1  &kp BSPC   &kp RGUI
 			>;
-
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 
-// symbols layer
-		raise_layer {
-			bindings = <
-&bt BT_CLR &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3 &bt BT_SEL 4 &trans    &trans   &trans &trans &trans &trans
-&kp GRAVE  &kp CARET  &kp DOLLAR  &kp LBRC  &kp PRCNT  &kp RBRC                 &kp PLUS  &kp AMPS &kp LT    &kp GT   &kp BSLH &kp PIPE
-&kp TILDE  &kp UNDER  &kp HASH    &kp LPAR  &kp MINUS  &kp RPAR                 &kp STAR  &kp RGUI &kp RSHFT &kp RCTL &kp LALT &kp SQT
-&trans     &kp EXCL   &kp AT      &kp LBKT  &kp EQUAL  &kp RBKT  &trans &trans  &kp MINUS &trans   &kp COMMA &kp DOT  &kp FSLH &trans
-                                  &trans    &trans     &trans    &trans &trans  &trans    &kp BSPC &trans
-			>;
-		};
-
-// nav layer
-		lower_layer {
-			bindings = <
-&trans &kp F1     &kp F2    &kp F3     &kp F4      &kp F5               &kp F6   &kp F7    &kp F8    &kp F9    &kp F10    &kp F11
-&trans &trans     &trans    &kp PG_UP  &kp PG_DN   &trans               &trans   &trans    &kp BSPC  &kp DEL   &trans     &kp F12
-&trans &kp LALT   &kp LCTL  &kp LSHFT  &kp LGUI    &trans               &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &caps_word &trans
-&trans &kp K_UNDO &kp K_CUT &kp K_COPY &kp K_PASTE &trans &trans &trans &trans   &kp HOME  &kp END   &trans    &trans     &trans
-                            &trans     &trans      &trans &trans &trans &trans   &kp BSPC  &trans
-			>;
-		};
-
-		one_right_hand_nav_layer {
-			bindings = <
-&trans &trans &trans &trans &trans &trans                &trans   &trans   &trans  &trans    &trans &trans
-&trans &trans &trans &trans &trans &trans                &trans   &trans   &trans  &trans    &trans &trans
-&trans &trans &trans &trans &trans &trans                &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans &trans
-&trans &trans &trans &trans &trans &trans  &trans &trans &trans   &kp HOME &kp END &trans    &trans &trans
-                     &trans &trans &trans  &trans &trans &trans   &trans   &trans
-			>;
-
-		};
-
-		num_layer {
-			bindings = <
-&trans &trans &trans &trans &trans &trans                   &trans    &trans   &trans &trans &trans &trans
-&trans &trans &trans &trans &trans &trans                   &kp PLUS  &kp N7   &kp N8 &kp N9 &kp COMMA &trans
-&trans &kp LALT &kp LCTL &kp LSHFT &kp LGUI &trans          &kp STAR  &kp N4   &kp N5 &kp N6 &kp DOT   &trans
-&trans &trans &trans &trans &trans &trans  &trans &trans    &kp MINUS &kp N1   &kp N2 &kp N3 &kp BSLH  &trans
-                     &trans &trans &trans  &trans &kp SPACE &kp N0    &kp BSPC &trans
-			>;
-		};
 
 	};
 };
