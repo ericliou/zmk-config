@@ -54,7 +54,7 @@
 // &mt LCTL ESC &kp A  &kp R  &kp S  &kp T  &kp D  &kp H  &kp N  &kp E      &kp I    &kp O     &mt LALT SQT
 // &kp LSHFT    &kp Z  &kp X  &kp C  &kp V  &kp B  &kp K  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &mt RSHFT RET
 
-                        &kp LALT  &mo 2 &kp SPACE &mo 1  &kp RGUI
+                        &kp LALT  &lt 2 TAB &kp SPACE &lt 1 SPACE  &mt RGUI COLON
                         >;
                 };
 
