@@ -42,7 +42,7 @@
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |   BKSP    |
 // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |   ALT(')  |
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT(RET) |
-//                         | ALT | LWR | SPC | RSE  | GUI(TAB) |
+//                         | ALT | LWR | SPC | RSE  | GUI(:) |
                         bindings = <
 
 
@@ -54,7 +54,7 @@
 // &mt LCTL ESC &kp A  &kp R  &kp S  &kp T  &kp D  &kp H  &kp N  &kp E      &kp I    &kp O     &mt LALT SQT
 // &kp LSHFT    &kp Z  &kp X  &kp C  &kp V  &kp B  &kp K  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &mt RSHFT RET
 
-                        &kp LALT  &lt 2 TAB &kp SPACE &lt 1 SPACE  &mt RGUI COLON
+                        &kp LALT  &lt 2 TAB &kp SPACE &lt 1 SPACE  &mt RGUI LS(P)
                         >;
                 };
 
