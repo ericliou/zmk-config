@@ -50,12 +50,12 @@
                 raise_layer {
 // -------------------------------------   --------------------------------------------
 // |  `  |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |      DEL    |
-// |CTRL |  -  |  =  |  (  |  )  |  \  |   | LFT | DWN |  UP | RGT |     |             |
+// |CTRL |  -  |  =  |  (  |  )  |  \  |   | LFT | DWN |  UP | RGT |     |      INS    |
 // |SHFT |  _  |  +  |  [  |  ]  | "|" |   | HOME| END | PGUP| PGDN|     | SHFT(SPACE) |
 //                       |     |     |    | ADJ |     |
                         bindings = <
 &kp GRAVE &kp EXCL  &kp AT      &kp HASH &kp DLLR &kp PRCNT      &kp CARET &kp AMPS &kp ASTRK &kp LPAR  &kp RPAR  &kp DEL
-   &trans &kp MINUS &kp EQUAL   &kp LPAR &kp RPAR &kp BSLH       &kp LEFT  &kp DOWN &kp UP    &kp RIGHT &kp PIPE  &trans
+   &trans &kp MINUS &kp EQUAL   &kp LPAR &kp RPAR &kp BSLH       &kp LEFT  &kp DOWN &kp UP    &kp RIGHT &kp PIPE  &kp INS
    &trans &kp UNDER &kp PLUS    &kp LBKT &kp RBKT &kp PIPE       &kp HOME  &kp END  &kp PG_UP &kp PG_DN &trans    &trans
                                  &trans      &mo 3     &trans      &trans     &trans
                         >;
@@ -65,12 +65,12 @@
                 lower_layer {
 // ------------------------------------   ------------------------------------
 // |    |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | DEL |
-// |    |     |     |     |     |     |   | LFT | DWN |  UP | RGT |     |     |
+// |    |     |     |     |     |     |   | LFT | DWN |  UP | RGT |     | INS |
 // |    |     |     |     | TAB |RALT |   | HOME| END | PGUP| PGDN|     |     |
 //                       |     | ADJ |     |    |     |
                         bindings = <
    &trans &kp N1    &kp N2    &kp N3    &kp N4    &kp N5        &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp DEL
-   &trans &trans    &kp EQUAL &kp LBKT  &kp RBKT  &kp BSLH      &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp PIPE  &trans
+   &trans &trans    &kp EQUAL &kp LBKT  &kp RBKT  &kp BSLH      &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp PIPE  &kp INS
    &trans &trans    &trans    &trans    &kp TAB   &kp RALT      &kp HOME  &kp END   &kp PG_UP &kp PG_DN &trans    &trans
                                 &trans    &trans    &trans     &mo 3      &trans
                         >;
